@@ -1,0 +1,272 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-image: url('./img/9_intro_outro_screens/start/main-background.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    overflow: hidden !important;
+    font-family: 'LuckiesGuy', Arial, Helvetica, sans-serif;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    margin: 0;
+    touch-action: none;
+}
+
+h1 {
+    font-size: 82px;
+    text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.5);
+    letter-spacing: 4px;
+    color: goldenrod;
+    text-align: center;
+    margin: 0;
+}
+
+h3 {
+    margin: 0 0 5px 0;
+    font-size: 30px;
+}
+
+canvas {
+    background-color: black;
+    margin-top: 5%;
+}
+
+.start-screen-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 200px;
+}
+
+.start-screen-buttons {
+    width: 260px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: goldenrod;
+    font-family: 'LuckiesGuy', Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    z-index: 99;
+}
+
+.start-screen-mute-button{
+   color: white;
+   font-family: 'LuckiesGuy', Arial, Helvetica, sans-serif;
+   font-size: 14px;
+}
+
+.start-screen-mute-button:hover{
+    cursor: pointer;
+}
+
+.start-screen-buttons:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.footer {
+    display: flex;
+    width: 500px;
+    justify-content: space-evenly;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: goldenrod;
+    text-decoration: underline;
+}
+
+.instructions-div {
+    width: 100%;
+    height: 30%;
+    color: goldenrod;
+    display: none;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.gameButtons {
+    display: none;
+    justify-content: space-between;
+    width: 700px;
+}
+
+.info {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.5);
+    flex-direction: column;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+    flex-direction: column;
+    z-index: 99;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0 0 0;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 0 40px 0;
+}
+
+.left-side-action-btn {
+    margin: 0 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    gap: 10px;
+}
+
+.left-side-action-top{
+    display: flex;
+    justify-content: center;
+}
+ 
+.left-side-action-bottom{
+    display: flex;
+    justify-content: space-between;
+}
+
+.right-side-action-btn {
+    margin: 0 20px 0;
+    display: flex;
+    align-items: flex-end;
+    gap: 30px;
+}
+
+.round-buttons {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border-color: goldenrod;
+    border-width: 3px;
+    background-color: rgba(100, 200, 0, 0.5);
+}
+
+.small-scale {
+    width: 20px;
+    height: 20px;
+}
+
+.rotate-image {
+    width: 100px;
+    height: 100px;
+    animation: spinAnimation 2s ease-in-out infinite;
+}
+
+@keyframes spinAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(90deg);
+    }
+
+    75% {
+        transform: rotate(90deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@font-face {
+    font-family: 'LuckiesGuy';
+    src: url('./fonts/LuckiestGuy-Regular.ttf') format('truetype');
+}
+
+@media only screen and (max-width:1439px) {
+    body {
+        background-position-x: 30%;
+    }
+
+    h1 {
+        font-size: 65px;
+    }
+}
+
+@media all and (orientation:portrait) {
+    .info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 1079px) {
+
+
+    canvas {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 56px;
+    }
+
+    .start-screen-buttons {
+        width: 180px;
+        height: 45px;
+        font-size: 18px;
+    }
+
+    .footer {
+        width: 300px;
+    }
+
+    .privacy-h1{
+        font-size: 32px;
+    }
+}
+
+@media only screen and (max-height: 800px){
+    canvas{
+        margin-top: 0%;
+    }
+}
+
+@media only screen and (max-height: 680px) {
+    canvas {
+        height: 100vh;
+    }
+}

@@ -1,0 +1,117 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('/img/9_intro_outro_screens/start/instructions-background.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'LuckiesGuy', Arial, Helvetica, sans-serif;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+h1 {
+    font-size: 82px;
+    margin: 10px 0 20px 0;
+    text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.5);
+    letter-spacing: 4px;
+    color: goldenrod;
+    text-align: center;
+}
+
+h2 {
+    color: goldenrod;
+    font-size: 36px;
+}
+
+h3 {
+    color: goldenrod;
+    font-size: 26px;
+    margin: 0;
+}
+
+p {
+    color: rgb(199, 141, 86);
+    font-size: 26px;
+}
+
+.text-container {
+    width: 50%;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.back-container{
+    position: absolute;
+    top: 50px;
+    left: 20px;
+}
+
+.back-img{
+    width: 100px;
+}
+
+.back-img:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.daten-b{
+    overflow-y: scroll;
+    background-image: none !important;
+    background-color: rgb(178, 204, 228);
+}
+
+.daten{
+    width: 80%;
+}
+
+@font-face {
+    font-family: 'LuckiesGuy';
+    src: url('/fonts/LuckiestGuy-Regular.ttf') format('truetype');
+}
+
+@media  screen and (max-width: 1080px) {
+    h1{
+        font-size: 62px;
+        margin-top: 100px;
+    }
+}
+
+@media  screen and (max-width: 830px) {
+    h1{
+        font-size: 42px;
+        margin-top: 160px;
+    }
+
+    p{
+        font-size: 22px;
+    }
+}
+
+@media  screen and (max-width: 600px) {
+    h1{
+        font-size: 26px;
+    }
+
+    p{
+        font-size: 16px;
+    }
+}
+
+
+@media  screen and (max-width: 410px) {
+    h1{
+        font-size: 18px;
+    }
+
+    p{
+        font-size: 16px;
+    }
+}

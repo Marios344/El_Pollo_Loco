@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Pollo Loco</title>
+    <link rel="icon" type="image/x-icon" href="./img/logo.png">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./models/drawable-object.class.js"></script>
+    <script src="./models/movable-object.class.js"></script>
+    <script src="./models/endscreen.class.js"></script>
+    <script src="./models/character.class.js"></script>
+    <script src="./models/chicken.class.js"></script>
+    <script src="./models/chicks.class.js"></script>
+    <script src="./models/cloud.class.js"></script>
+    <script src="./models/background-object.class.js"></script>
+    <script src="./models/keyboard.class.js"></script>
+    <script src="./models/endboss.class.js"></script>
+    <script src="./models/worldRenderer.class.js"></script>
+    <script src="./models/endboss-healthbar.class.js"></script>
+    <script src="./models/status-bar.class.js"></script>
+    <script src="./models/coin-bar.class.js"></script>
+    <script src="./models/bottle-bar.class.js"></script>
+    <script src="./models/coins.class.js"></script>
+    <script src="./models/bottle-ground.class.js"></script>
+    <script src="./models/throwable-object.class.js"></script>
+    <script src="./models/sound-manager.class.js"></script>
+    <script src="./models/world.class.js"></script>
+    
+    <script src="./models/level.class.js"></script>
+    <script src="./levels/level1.js"></script>
+    <script src="./js/game.js"></script>
+    <script src="./js/script.js"></script>
+</head>
+
+<body>
+
+    <h1 id="title">El pollo loco</h1>
+
+    <canvas style="display: none; margin-bottom: 10px;" id="canvas" width="1080" height="680"></canvas>
+
+    <div id="overlay" class="overlay">
+        <div class="options">
+            <button onclick="stopMusic()" class="round-buttons"><img id="muteBtn" class="small-scale"
+                    src="./img/action-btns/sound.png"></button>
+            <button onclick="goBackToMenu()" class="round-buttons"><img class="small-scale"
+                    src="./img/action-btns/home.png"></button>
+            <button onclick="restartGame()" class="round-buttons"><img class="small-scale"
+                    src="./img/action-btns/retry.png"></button>
+        </div>
+        <div class="action-buttons">
+            <div class="left-side-action-btn">
+                <div class="left-side-action-top">
+                    <button id="upBtn" class="round-buttons"><img class="small-scale"
+                            src="./img/action-btns/up-btn.png"></button>
+                </div>
+                <div class="left-side-action-bottom">
+                    <button id="leftBtn" class="round-buttons"><img class="small-scale"
+                            src="./img/action-btns/left_btn.png"></button>
+                    <button id="rightBtn" class="round-buttons"><img class="small-scale"
+                            src="./img/action-btns/right_btn.png"></button>
+                </div>
+            </div>
+            <div class="right-side-action-btn">
+                <button id="buyBtn" class="round-buttons"><img class="small-scale"
+                        src="./img/action-btns/spend.png"></button>
+                <button id="throwBtn" class="round-buttons"><img class="small-scale"
+                        src="./img/action-btns/throw.png"></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="instructions" class="instructions-div">
+        <div class="text-container">
+            <h3>A - MOVE LEFT</h3>
+            <h3>D - MOVE RIGHT</h3>
+            <h3>W - JUMP</h3>
+            <h3>S - BUY BOTTLES</h3>
+            <h3>SPACEBAR - THROW BOTTLE</h3>
+            <button onclick="closeInstructions()" class="start-screen-buttons">Close</button>
+        </div>
+    </div>
+
+    <div id="start-screen-layout" class="start-screen-layout">
+        <button class="start-screen-buttons" onclick="start()">PLAY</button>
+        <button class="start-screen-buttons" onclick="goToInstructions()">INSTRUCTIONS</button>
+    </div>
+
+    <div class="footer" id="footer">
+        <a href="./privacy.html">PRIVACY POLICY</a>
+        <a href="./legal.html">LEGAL NOTICE</a>
+    </div>
+
+    <div class="gameButtons" id="gameButtons">
+        <button onclick="goBackToMenu()" class="start-screen-buttons">Menu</button>
+        <button onclick="stopMusic()" class="start-screen-mute-button round-buttons"><img id="desktopMuteBtn" class="small-scale" src="./img/action-btns/sound.png"></button>
+        <button onclick="restartGame()" class="start-screen-buttons">Restart</button>
+    </div>
+
+    <div class="info">
+        <p style="color: white;">PLEASE ROTATE YOUR DEVICE</p>
+        <img class="rotate-image" src="./img/action-btns/rotate-phone.png">
+    </div>
+
+
+</body>
+
+</html>
