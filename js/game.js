@@ -24,6 +24,14 @@ function init() {
   soundManager.bgMusicPlay();
 }
 
+function goToStart(){
+  let menu = document.getElementById("start-screen-layout");
+  let start = document.getElementById("before-you-start");
+
+  menu.style.display = "none";
+  start.style.display = "flex";
+}
+
 /**
  * Returns to the main menu by resetting intervals, styles, and game objects.
  */
@@ -160,7 +168,7 @@ function desktopSettings(){
 function gameStyle() {
   let canvas = document.getElementById("canvas");
   let title = document.getElementById("title");
-  let startContainer = document.getElementById("start-screen-layout");
+  let startContainer = document.getElementById("before-you-start");
   let footer = document.getElementById("footer");
   
   canvas.style.display = "block";

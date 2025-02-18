@@ -20,6 +20,7 @@ class World {
   win = new Endscreen(true);
   worldIntervalIds = [];
   characterPassedBoss = false;
+  lastBottleThrowTime = 0;
 
   /**
    * Creates an instance of the World class.
@@ -76,17 +77,9 @@ class World {
     this.level.enemies.forEach((enemy, index) => {
       if (this.isDroppingOnEnemy(enemy)) {
         this.handleEnemyDrop(enemy, index);
-      } else if (
-        this.character.isColliding(enemy) &&
-        !enemy.isDead() &&
-        this.character.isFalling()
-      ) {
+      } else if (this.character.isColliding(enemy) &&!enemy.isDead() &&this.character.isFalling()) {
         this.handleCharacterHit();
-      } else if (
-        this.character.isColliding(enemy) &&
-        !enemy.isDead() &&
-        enemy instanceof Endboss
-      ) {
+      } else if (this.character.isColliding(enemy) &&!enemy.isDead() &&enemy instanceof Endboss) {
         this.handleCharacterHit();
       }
     });
@@ -127,12 +120,12 @@ class World {
     this.level.enemies.forEach((enemy) => {
       if (enemy instanceof Endboss) {
         const distance = Math.abs(this.character.x - enemy.x);
-        if (distance < 300) {
+        if (distance < 480) {
           enemy.bossReadyToAttack();
-          enemy.speed = 15;
+          enemy.speed = 25;
         } else {
           enemy.bossStopAttack();
-          enemy.speed = 3;
+          enemy.speed = 10;
         }
       }
     });
@@ -174,7 +167,7 @@ class World {
    * @param {number} index - The index of the coin to remove from the inventory.
    */
   useCoins(bottle, index) {
-    if (this.keyboard.DOWN && this.bottleAmmount.length < 5 && this.coinAmmount.length >= 1) {
+    if (this.keyboard.DOWN &&this.bottleAmmount.length < 5 &&this.coinAmmount.length) {
       this.soundManager.useCoinSound.play();
       this.bottleAmmount.push(bottle);
       this.coinAmmount.splice(index, 1);
@@ -215,9 +208,14 @@ class World {
    */
   characterIsOutOfBottles() {
     this.level.enemies.forEach((enemy) => {
-      if ( enemy instanceof Endboss && !enemy.isDead() && this.coinsUsed === 5 && this.bottlesUsed === 10) {
+      if (
+        enemy instanceof Endboss &&
+        !enemy.isDead() &&
+        this.coinsUsed === 5 &&
+        this.bottlesUsed === 10
+      ) {
         if (this.bottleAmmount.length === 0 && this.coinAmmount.length === 0) {
-          if (enemy.energy > 20 ){
+          if (enemy.energy > 20) {
             this.character.energy = 0;
           }
         }
@@ -293,23 +291,39 @@ class World {
   }
 
   /**
-   * Checks if the character is trying to throw a bottle.
+   * Checks if the character is trying to throw a bottle and enforces a cooldown period.
+   * The player can only throw a bottle if at least one is available and the cooldown has elapsed.
    */
   checkThrowableObjects() {
+    let now = Date.now();
+    let throwCooldown = 1500; 
+
     if (this.keyboard.SPACE && this.bottleAmmount.length > 0) {
-      if (!this.character.otherDirection) {
+      if (now - this.lastBottleThrowTime >= throwCooldown) {
+        this.lastBottleThrowTime = now;
+
         let bottle = new ThrowableObject(
           this.character.x + 100,
           this.character.y + 10
         );
-        this.soundManager.throwBottleSound.play();
-        this.throwableObjects.push(bottle);
-        this.bottleAmmount.pop();
-        this.updateBar(this.bottleBar, this.bottleAmmount, 5);
-        this.character.lastMoveTime = Date.now();
-        this.bottlesUsed += 1;
+
+        this.bottleThrowRffect(bottle);
       }
     }
+  }
+
+  /**
+   * Handles the effects of throwing a bottle, including sound, UI updates, and tracking.
+   *
+   * @param {ThrowableObject} bottle - The bottle object that is being thrown.
+  */
+  bottleThrowRffect(bottle) {
+    this.soundManager.throwBottleSound.play();
+    this.throwableObjects.push(bottle);
+    this.bottleAmmount.pop();
+    this.updateBar(this.bottleBar, this.bottleAmmount, 5);
+    this.character.lastMoveTime = Date.now();
+    this.bottlesUsed += 1;
   }
 
   /**

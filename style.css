@@ -192,6 +192,21 @@ a:hover {
     animation: spinAnimation 2s ease-in-out infinite;
 }
 
+.before-you-start{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: goldenrod;
+    width: 80%;
+}
+
+.before-you-start-text{
+    font-size: 30px !important;
+    text-align: center;
+    text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.5);
+}
+
 @keyframes spinAnimation {
     0% {
         transform: rotate(0deg);
@@ -225,7 +240,7 @@ a:hover {
     }
 }
 
-@media all and (orientation:portrait) {
+@media all and (orientation: portrait) and (max-width: 1079px) {
     .info {
         display: flex;
         justify-content: center;
@@ -234,8 +249,6 @@ a:hover {
 }
 
 @media only screen and (max-width: 1079px) {
-
-
     canvas {
         width: 100%;
     }
@@ -256,6 +269,20 @@ a:hover {
 
     .privacy-h1{
         font-size: 32px;
+    }
+
+    .before-you-start-text{
+        font-size: 24px !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .privacy-h1{
+        font-size: 24px;
+    }
+
+    .before-you-start-text{
+        font-size: 18px !important;
     }
 }
 
