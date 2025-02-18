@@ -108,10 +108,17 @@ function desktopMuteStyleChange() {
   }
 }
 
+/**
+ * Checks if the current device has a touch screen.
+ * @returns {boolean} True if the device has touch capabilities, otherwise false.
+ */
 function isTouchScreen() {
   return "ontouchstart" in window || navigator.maxTouchPoints > 0;
 }
 
+/**
+ * Applies different settings based on whether the device is a touchscreen or a desktop.
+ */
 function mobileOrDesktop(){
   if (isTouchScreen()) {
     mobileSettings();
@@ -120,16 +127,25 @@ function mobileOrDesktop(){
   }
 }
 
+/**
+ * Displays the mobile settings overlay.
+ */
 function mobileSettings(){
   let overlay = document.getElementById("overlay");
   overlay.style.display = "flex";
 }
 
+/**
+ * Hides the mobile settings overlay.
+ */
 function hideMobileSettings(){
   let overlay = document.getElementById("overlay");
   overlay.style.display = "none";
 }
 
+/**
+ * Applies desktop-specific settings by hiding the overlay and displaying game buttons.
+ */
 function desktopSettings(){
   let overlay = document.getElementById("overlay");
   let gameButtons = document.getElementById("gameButtons");
