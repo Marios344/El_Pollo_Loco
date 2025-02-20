@@ -240,7 +240,7 @@ a:hover {
     }
 }
 
-@media all and (orientation: portrait) and (max-width: 1079px) {
+@media all and (pointer:coarse) {
     .info {
         display: flex;
         justify-content: center;
